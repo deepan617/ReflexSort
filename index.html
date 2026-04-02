@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReflexSort — AI-Powered Waste Sorting System</title>
+    <meta
+      name="description"
+      content="ReflexSort is a cutting-edge AI robotics system that transforms recycling with automated waste sorting, computer vision, and robotic precision."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- =========== NAVIGATION =========== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">ReflexSort</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#metrics">Metrics</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =========== HERO =========== -->
+    <section class="hero" id="hero">
+      <canvas id="particleCanvas"></canvas>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Next-Gen Recycling Technology
+        </div>
+        <h1 class="hero-title">
+          AI-Powered<br /><span class="gradient-text">Waste Sorting</span
+          ><br />System
+        </h1>
+        <p class="hero-sub">
+          Transforming Recycling with Robotics and Intelligence
+        </p>
+        <div class="hero-actions">
+          <a href="#how-it-works" class="btn-primary" id="explore-btn">
+            <span>Explore System</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#features" class="btn-ghost" id="tech-btn">
+            <span>View Technology</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-n">30+</span><span class="stat-l">Picks/min</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-n">85%</span><span class="stat-l">Accuracy</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-n">&lt;3s</span
+            ><span class="stat-l">Cycle Time</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="robot-frame">
+          <img src="hero.png" alt="ReflexSort Robotic Arm" class="hero-img" />
+          <div class="scan-line"></div>
+          <div class="hud-overlay">
+            <div class="hud-item hud-tl">
+              <div class="hud-label">AI Vision</div>
+              <div class="hud-val">ACTIVE</div>
+            </div>
+            <div class="hud-item hud-tr">
+              <div class="hud-label">Confidence</div>
+              <div class="hud-val">97.4%</div>
+            </div>
+            <div class="hud-item hud-bl">
+              <div class="hud-label">Objects/s</div>
+              <div class="hud-val">0.52</div>
+            </div>
+            <div class="hud-item hud-br">
+              <div class="hud-label">Status</div>
+              <div class="hud-val text-green">RUNNING</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- =========== ABOUT =========== -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-label">About ReflexSort</div>
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 class="section-title">
+              Where AI Meets <span class="gradient-text">Sustainability</span>
+            </h2>
+            <p class="about-desc">
+              ReflexSort is an intelligent, fully automated waste sorting system
+              that fuses computer vision, deep learning, and robotic actuation
+              to classify and sort recyclable materials at industrial scale —
+              without any human intervention.
+            </p>
+            <p class="about-desc">
+              Designed for recycling plants, smart cities, and manufacturing
+              facilities, ReflexSort operates continuously, adapts to new waste
+              categories, and delivers consistent, measurable environmental
+              impact.
+            </p>
+            <div class="about-icons">
+              <div class="about-icon-card">
+                <div class="icon-circle">🤖</div>
+                <span>Robotics</span>
+              </div>
+              <div class="about-icon-card">
+                <div class="icon-circle">🧠</div>
+                <span>AI / ML</span>
+              </div>
+              <div class="about-icon-card">
+                <div class="icon-circle">⚡</div>
+                <span>Automation</span>
+              </div>
+              <div class="about-icon-card">
+                <div class="icon-circle">🌿</div>
+                <span>Eco-Impact</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="about-card glass-card">
+              <div class="about-arch-diagram">
+                <div class="arch-node node-cam">📷<span>Camera</span></div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node node-ai">🧠<span>AI Model</span></div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node node-arm">🦾<span>Arm</span></div>
+              </div>
+              <div class="about-metrics-mini">
+                <div class="mini-metric">
+                  <span class="mm-val">250 kg</span
+                  ><span class="mm-label">Per Hour</span>
+                </div>
+                <div class="mini-divider"></div>
+                <div class="mini-metric">
+                  <span class="mm-val">24/7</span
+                  ><span class="mm-label">Uptime</span>
+                </div>
+                <div class="mini-divider"></div>
+                <div class="mini-metric">
+                  <span class="mm-val">15+</span
+                  ><span class="mm-label">Categories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== PROBLEM VS SOLUTION =========== -->
+    <section class="problem-solution section" id="problem-solution">
+      <div class="container">
+        <div class="section-label">The Challenge</div>
+        <h2 class="section-title text-center">
+          Problem <span class="gradient-text">vs</span> Solution
+        </h2>
+        <p class="section-sub text-center">
+          Legacy waste management is broken. ReflexSort fixes it.
+        </p>
+        <div class="ps-grid">
+          <div class="ps-card ps-problem glass-card">
+            <div class="ps-header">
+              <div class="ps-icon ps-icon-red">⚠️</div>
+              <h3>The Problem</h3>
+            </div>
+            <ul class="ps-list">
+              <li>
+                <span class="ps-bullet red">✗</span> Manual sorting is slow and
+                error-prone
+              </li>
+              <li>
+                <span class="ps-bullet red">✗</span> Heavy reliance on human
+                labor
+              </li>
+              <li>
+                <span class="ps-bullet red">✗</span> Contamination reduces
+                recyclability
+              </li>
+              <li>
+                <span class="ps-bullet red">✗</span> Inconsistent output quality
+              </li>
+              <li>
+                <span class="ps-bullet red">✗</span> High operational costs
+              </li>
+              <li>
+                <span class="ps-bullet red">✗</span> Cannot scale with waste
+                volume
+              </li>
+            </ul>
+            <div class="ps-tag ps-tag-red">Inefficient Legacy Systems</div>
+          </div>
+          <div class="ps-vs">
+            <div class="vs-circle">VS</div>
+          </div>
+          <div class="ps-card ps-solution glass-card">
+            <div class="ps-header">
+              <div class="ps-icon ps-icon-green">✅</div>
+              <h3>ReflexSort</h3>
+            </div>
+            <ul class="ps-list">
+              <li>
+                <span class="ps-bullet green">✓</span> AI detects and sorts at
+                30+ items/min
+              </li>
+              <li>
+                <span class="ps-bullet green">✓</span> Fully autonomous, zero
+                labor required
+              </li>
+              <li>
+                <span class="ps-bullet green">✓</span> 85%+ sorting accuracy
+                consistently
+              </li>
+              <li>
+                <span class="ps-bullet green">✓</span> Self-learning model
+                improves over time
+              </li>
+              <li>
+                <span class="ps-bullet green">✓</span> Low total cost of
+                ownership
+              </li>
+              <li>
+                <span class="ps-bullet green">✓</span> Modular, infinitely
+                scalable design
+              </li>
+            </ul>
+            <div class="ps-tag ps-tag-green">Intelligent Automation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== HOW IT WORKS =========== -->
+    <section class="how-it-works section" id="how-it-works">
+      <div class="container">
+        <div class="section-label">Process Flow</div>
+        <h2 class="section-title text-center">
+          How <span class="gradient-text">ReflexSort</span> Works
+        </h2>
+        <p class="section-sub text-center">
+          Five intelligent stages. One seamless pipeline.
+        </p>
+        <div class="steps-flow">
+          <div class="step-card glass-card" data-step="1">
+            <div class="step-num">01</div>
+            <div class="step-icon">📷</div>
+            <h4>Camera Capture</h4>
+            <p>
+              High-res cameras capture waste items on the conveyor belt in
+              real-time at 60fps.
+            </p>
+          </div>
+          <div class="step-connector">
+            <div class="connector-line">
+              <span class="connector-arrow">›</span>
+            </div>
+          </div>
+          <div class="step-card glass-card" data-step="2">
+            <div class="step-num">02</div>
+            <div class="step-icon">🧠</div>
+            <h4>AI Detection</h4>
+            <p>
+              Deep learning model classifies material type, shape, and
+              contamination level in &lt;50ms.
+            </p>
+          </div>
+          <div class="step-connector">
+            <div class="connector-line">
+              <span class="connector-arrow">›</span>
+            </div>
+          </div>
+          <div class="step-card glass-card" data-step="3">
+            <div class="step-num">03</div>
+            <div class="step-icon">⚡</div>
+            <h4>Decision Engine</h4>
+            <p>
+              Controller computes optimal pick path and target bin assignment in
+              milliseconds.
+            </p>
+          </div>
+          <div class="step-connector">
+            <div class="connector-line">
+              <span class="connector-arrow">›</span>
+            </div>
+          </div>
+          <div class="step-card glass-card" data-step="4">
+            <div class="step-num">04</div>
+            <div class="step-icon">🦾</div>
+            <h4>Robotic Arm</h4>
+            <p>
+              6-DOF robotic arm with pneumatic gripper executes precise
+              pick-and-place in &lt;3 seconds.
+            </p>
+          </div>
+          <div class="step-connector">
+            <div class="connector-line">
+              <span class="connector-arrow">›</span>
+            </div>
+          </div>
+          <div class="step-card glass-card" data-step="5">
+            <div class="step-num">05</div>
+            <div class="step-icon">🗑️</div>
+            <h4>Sorting Bin</h4>
+            <p>
+              Items are sorted into categorized bins: Plastic, Metal, Glass,
+              Organic, E-waste.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== FEATURES =========== -->
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-label">Capabilities</div>
+        <h2 class="section-title text-center">
+          Built for <span class="gradient-text">Industrial Performance</span>
+        </h2>
+        <p class="section-sub text-center">
+          Every component engineered for maximum reliability and throughput.
+        </p>
+        <div class="features-grid">
+          <div class="feat-card glass-card" id="feat-1">
+            <div class="feat-icon-wrap"><span class="feat-icon">👁️</span></div>
+            <h4>AI Vision System</h4>
+            <p>
+              Multi-spectrum cameras with YOLOv8-based detection for 15+ waste
+              categories with 97% precision.
+            </p>
+            <div class="feat-tag">Computer Vision</div>
+          </div>
+          <div class="feat-card glass-card" id="feat-2">
+            <div class="feat-icon-wrap"><span class="feat-icon">🦾</span></div>
+            <h4>Robotic Arm</h4>
+            <p>
+              6-axis industrial arm with adaptive grippers designed to handle
+              irregular shapes and mixed materials.
+            </p>
+            <div class="feat-tag">Robotics</div>
+          </div>
+          <div class="feat-card glass-card" id="feat-3">
+            <div class="feat-icon-wrap"><span class="feat-icon">⚡</span></div>
+            <h4>Real-time Sorting</h4>
+            <p>
+              Sub-3-second cycle time with parallel processing ensures 30+ picks
+              per minute continuously.
+            </p>
+            <div class="feat-tag">Performance</div>
+          </div>
+          <div class="feat-card glass-card" id="feat-4">
+            <div class="feat-icon-wrap"><span class="feat-icon">💰</span></div>
+            <h4>Low Operating Cost</h4>
+            <p>
+              70% lower operational cost vs. manual sorting. ROI achieved within
+              18 months of deployment.
+            </p>
+            <div class="feat-tag">Economics</div>
+          </div>
+          <div class="feat-card glass-card" id="feat-5">
+            <div class="feat-icon-wrap"><span class="feat-icon">📐</span></div>
+            <h4>Scalable Architecture</h4>
+            <p>
+              Modular design allows adding sorter cells without downtime. Scale
+              from 1 to 100+ units seamlessly.
+            </p>
+            <div class="feat-tag">Scalability</div>
+          </div>
+          <div class="feat-card glass-card" id="feat-6">
+            <div class="feat-icon-wrap"><span class="feat-icon">🏭</span></div>
+            <h4>Industrial-Grade Design</h4>
+            <p>
+              IP65-rated enclosure, 24/7 continuous operation, built to
+              withstand harsh recycling environments.
+            </p>
+            <div class="feat-tag">Durability</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== SYSTEM ARCHITECTURE =========== -->
+    <section class="architecture section" id="architecture">
+      <div class="container">
+        <div class="section-label">Technical Overview</div>
+        <h2 class="section-title text-center">
+          System <span class="gradient-text">Architecture</span>
+        </h2>
+        <p class="section-sub text-center">
+          A unified pipeline from sensor to action.
+        </p>
+        <div class="arch-diagram-v2">
+          <div class="arch-stage">
+            <div class="arch-stage-header">
+              <div class="arch-stage-icon">📡</div>
+              <div class="arch-stage-title">Sensor Layer</div>
+            </div>
+            <div class="arch-nodes-v2">
+              <div class="arch-node-v2">
+                <span class="anode-icon">📷</span><span>RGB Camera</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">🌡️</span><span>Depth Sensor</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">🔦</span><span>IR Scanner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-connection">
+            <div class="arch-connection-line"></div>
+            <div class="arch-connection-label">Data Stream</div>
+          </div>
+
+          <div class="arch-stage">
+            <div class="arch-stage-header">
+              <div class="arch-stage-icon">🧠</div>
+              <div class="arch-stage-title">AI Processing</div>
+            </div>
+            <div class="arch-nodes-v2">
+              <div class="arch-node-v2 featured">
+                <span class="anode-icon">🤖</span><span>YOLOv8 Model</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">🔄</span><span>Classification</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">📊</span><span>Confidence Score</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-connection">
+            <div class="arch-connection-line"></div>
+            <div class="arch-connection-label">Control Signal</div>
+          </div>
+
+          <div class="arch-stage">
+            <div class="arch-stage-header">
+              <div class="arch-stage-icon">⚙️</div>
+              <div class="arch-stage-title">Control Layer</div>
+            </div>
+            <div class="arch-nodes-v2">
+              <div class="arch-node-v2">
+                <span class="anode-icon">💻</span><span>Edge Controller</span>
+              </div>
+              <div class="arch-node-v2 featured">
+                <span class="anode-icon">🦾</span><span>Robotic Arm</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">🗑️</span><span>Sort Bins</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-connection">
+            <div class="arch-connection-line"></div>
+            <div class="arch-connection-label">Analytics</div>
+          </div>
+
+          <div class="arch-stage">
+            <div class="arch-stage-header">
+              <div class="arch-stage-icon">☁️</div>
+              <div class="arch-stage-title">Cloud Dashboard</div>
+            </div>
+            <div class="arch-nodes-v2">
+              <div class="arch-node-v2">
+                <span class="anode-icon">🗄️</span><span>Cloud Storage</span>
+              </div>
+              <div class="arch-node-v2 featured">
+                <span class="anode-icon">📈</span><span>Live Analytics</span>
+              </div>
+              <div class="arch-node-v2">
+                <span class="anode-icon">🔔</span><span>Alerts & OTA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== METRICS =========== -->
+    <section class="metrics section" id="metrics">
+      <div class="container">
+        <div class="section-label">Performance Data</div>
+        <h2 class="section-title text-center">
+          System <span class="gradient-text">Metrics</span>
+        </h2>
+        <p class="section-sub text-center">
+          Benchmark data from operational deployments.
+        </p>
+        <div class="metrics-dashboard">
+          <div class="metric-card glass-card" id="mc-1">
+            <div class="metric-ring">
+              <svg viewBox="0 0 100 100" class="ring-svg">
+                <circle cx="50" cy="50" r="40" class="ring-bg" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  class="ring-fill"
+                  style="--pct: 75"
+                />
+              </svg>
+              <div class="metric-center">
+                <span class="metric-num" data-target="30" data-suffix="+"
+                  >0</span
+                >
+              </div>
+            </div>
+            <div class="metric-label">Picks per Minute</div>
+            <div class="metric-sublabel">Continuous operation rate</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 75%"></div>
+            </div>
+          </div>
+          <div class="metric-card glass-card" id="mc-2">
+            <div class="metric-ring">
+              <svg viewBox="0 0 100 100" class="ring-svg">
+                <circle cx="50" cy="50" r="40" class="ring-bg" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  class="ring-fill"
+                  style="--pct: 85"
+                />
+              </svg>
+              <div class="metric-center">
+                <span class="metric-num" data-target="85" data-suffix="%"
+                  >0</span
+                >
+              </div>
+            </div>
+            <div class="metric-label">Sorting Accuracy</div>
+            <div class="metric-sublabel">Across all material types</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="metric-card glass-card" id="mc-3">
+            <div class="metric-ring">
+              <svg viewBox="0 0 100 100" class="ring-svg">
+                <circle cx="50" cy="50" r="40" class="ring-bg" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  class="ring-fill"
+                  style="--pct: 60"
+                />
+              </svg>
+              <div class="metric-center">
+                <span class="metric-num" data-target="3" data-prefix="&lt;"
+                  >0</span
+                >
+              </div>
+            </div>
+            <div class="metric-label">Cycle Time (sec)</div>
+            <div class="metric-sublabel">From detect to sort</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="metric-card glass-card" id="mc-4">
+            <div class="metric-ring">
+              <svg viewBox="0 0 100 100" class="ring-svg">
+                <circle cx="50" cy="50" r="40" class="ring-bg" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  class="ring-fill"
+                  style="--pct: 90"
+                />
+              </svg>
+              <div class="metric-center">
+                <span class="metric-num" data-target="250" data-suffix=""
+                  >0</span
+                >
+              </div>
+            </div>
+            <div class="metric-label">Throughput (kg/hr)</div>
+            <div class="metric-sublabel">Mixed waste capacity</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Live Dashboard Row -->
+        <div class="live-panel glass-card">
+          <div class="live-header">
+            <span class="live-dot"></span>
+            <span>LIVE SYSTEM STATUS</span>
+          </div>
+          <div class="live-stats">
+            <div class="live-stat">
+              <div class="ls-label">Belt Speed</div>
+              <div class="ls-value ls-animate">0.4 m/s</div>
+            </div>
+            <div class="live-stat">
+              <div class="ls-label">Arm Status</div>
+              <div class="ls-value text-green">ACTIVE</div>
+            </div>
+            <div class="live-stat">
+              <div class="ls-label">Items Sorted</div>
+              <div class="ls-value ls-animate ls-count" data-base="14820">
+                14820
+              </div>
+            </div>
+            <div class="live-stat">
+              <div class="ls-label">Errors Today</div>
+              <div class="ls-value text-yellow">3</div>
+            </div>
+            <div class="live-stat">
+              <div class="ls-label">Uptime</div>
+              <div class="ls-value text-green">99.7%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== ROADMAP =========== -->
+    <section class="roadmap section" id="roadmap">
+      <div class="container">
+        <div class="section-label">Development Plan</div>
+        <h2 class="section-title text-center">
+          Product <span class="gradient-text">Roadmap</span>
+        </h2>
+        <p class="section-sub text-center">
+          Three phases to full industrial deployment.
+        </p>
+        <div class="timeline">
+          <div class="timeline-connector"></div>
+          <div class="timeline-phase tl-done glass-card" id="tl-1">
+            <div class="tl-badge">Phase 1</div>
+            <div class="tl-icon">🔬</div>
+            <h4>Research & Prototype</h4>
+            <p>
+              Dataset collection, model training, prototype conveyor system and
+              initial accuracy validation.
+            </p>
+            <ul class="tl-tasks">
+              <li class="done">✓ 10,000+ image dataset</li>
+              <li class="done">✓ YOLOv8 model v1.0</li>
+              <li class="done">✓ Lab prototype built</li>
+            </ul>
+            <div class="tl-status done">Completed</div>
+          </div>
+          <div class="timeline-phase tl-active glass-card" id="tl-2">
+            <div class="tl-badge">Phase 2</div>
+            <div class="tl-icon">⚙️</div>
+            <h4>Integration & Testing</h4>
+            <p>
+              Industrial arm integration, real-world testing, performance
+              optimization and safety certification.
+            </p>
+            <ul class="tl-tasks">
+              <li class="done">✓ 6-DOF arm integrated</li>
+              <li class="active">⟳ Field testing ongoing</li>
+              <li>○ Safety certification</li>
+            </ul>
+            <div class="tl-status active">In Progress</div>
+          </div>
+          <div class="timeline-phase tl-future glass-card" id="tl-3">
+            <div class="tl-badge">Phase 3</div>
+            <div class="tl-icon">🚀</div>
+            <h4>Commercial Launch</h4>
+            <p>
+              Full-scale production, partnership deployment, cloud platform
+              launch and international expansion.
+            </p>
+            <ul class="tl-tasks">
+              <li>○ Pilot facility deployment</li>
+              <li>○ Cloud SaaS platform</li>
+              <li>○ Global scale rollout</li>
+            </ul>
+            <div class="tl-status future">Upcoming 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== IMPACT =========== -->
+    <section class="impact section" id="impact">
+      <div class="impact-bg"></div>
+      <div class="container">
+        <div class="section-label">Environmental Impact</div>
+        <div class="impact-content">
+          <h2 class="impact-headline">
+            <span class="gradient-text-green">Smarter Recycling.</span><br />
+            <span class="gradient-text-blue">Cleaner Future.</span>
+          </h2>
+          <p class="impact-sub">
+            Every kilogram sorted by ReflexSort is a step toward a more
+            sustainable planet. We're not just building a product — we're
+            building the infrastructure of tomorrow's circular economy.
+          </p>
+          <div class="impact-cards">
+            <div class="impact-card glass-card">
+              <div class="impact-icon">🌱</div>
+              <div class="impact-stat">60%</div>
+              <div class="impact-stat-label">Reduced Landfill Waste</div>
+            </div>
+            <div class="impact-card glass-card">
+              <div class="impact-icon">💧</div>
+              <div class="impact-stat">40%</div>
+              <div class="impact-stat-label">
+                Water Saved vs. Virgin Material
+              </div>
+            </div>
+            <div class="impact-card glass-card">
+              <div class="impact-icon">⚡</div>
+              <div class="impact-stat">50%</div>
+              <div class="impact-stat-label">Energy Reduction in Recycling</div>
+            </div>
+            <div class="impact-card glass-card">
+              <div class="impact-icon">🌍</div>
+              <div class="impact-stat">1T+</div>
+              <div class="impact-stat-label">CO₂ Saved per Facility/Year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== FOOTER =========== -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nav-logo mb-4">
+              <span class="logo-icon">⬡</span>
+              <span class="logo-text">ReflexSort</span>
+            </div>
+            <p>
+              AI-powered waste sorting system for a sustainable future. Built by
+              engineers who care about the planet.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-btn" aria-label="GitHub">⌥</a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h5>Product</h5>
+            <a href="#about">About</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#metrics">Performance</a>
+          </div>
+          <div class="footer-links">
+            <h5>Company</h5>
+            <a href="#">Team</a>
+            <a href="#">Careers</a>
+            <a href="#">Press Kit</a>
+            <a href="#">Blog</a>
+          </div>
+          <div class="footer-contact">
+            <h5>Get In Touch</h5>
+            <p>📧 hello@reflexsort.ai</p>
+            <p>📞 +1 (800) REFLEX-1</p>
+            <p>📍 San Francisco, CA</p>
+            <a href="mailto:hello@reflexsort.ai" class="btn-primary footer-cta"
+              >Contact Us →</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 ReflexSort Inc. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
